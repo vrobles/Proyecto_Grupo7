@@ -35,10 +35,10 @@ La variable TENURE está altamente concentrada en los valores más altos, lo que
 
 Se propone las 4 nuevas características:
 
-Ratio de compras en efectivo a compras totales.
-Promedio de compras por transacción.
-Categoria de Saldo
-Categoria antiguedad
+- Ratio de compras en efectivo a compras totales.
+- Promedio de compras por transacción.
+- Categoria de Saldo
+- Categoria antiguedad
 
 
 Procesamiento de datos. Expliquen aquí todo el procesamiento que le realizaron a sus datos y justifíquenlo.
