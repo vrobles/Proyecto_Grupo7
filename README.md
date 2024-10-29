@@ -1,19 +1,23 @@
 # Proyecto_Grupo7
 Marketing Digital - Grupo 7
 
-Introducción
+# Análisis de Comportamiento de Clientes con Tarjetas de Crédito por Antigüedad
 
-El problema: aquí se plantea el problema y se lo contextualiza. Para esto pueden basarse en información que encuentren en internet. Pueden tratar de encontrar oportunidades de negocio en base a los datos que tienen disponibles, tal como pasa en su diario vivir.
+## Introducción
 
+### El Problema
+Actualmente, en el sector financiero, es fundamental entender el comportamiento de los clientes para poder ofrecerles servicios personalizados y anticiparse a sus necesidades. Las tarjetas de crédito generan una gran cantidad de datos que pueden revelar patrones de comportamiento que permitan a las instituciones financieras optimizar sus estrategias de marketing y retención de clientes. Este análisis busca aprovechar dichos datos para identificar grupos de clientes con comportamientos similares, con el objetivo de aplicar estrategias específicas para cada grupo.
 
-La solución: aquí se plantea la solución, que aunque es altamente técnica, en este punto de la presentación no se debe profundizar aún en ese tipo de detalles. Mencionen la solución técnica (segmentación de clientes) y cuál es su objetivo. Aquí también pueden mencionar soluciones existentes similares (machine learning-like) que hayan sido usadas en problemas similares.
+### La Solución
+La solución técnica se basa en la segmentación de clientes mediante el uso de algoritmos de machine learning, específicamente el algoritmo de clustering KMeans. Este método permite agrupar a los clientes en clusters o segmentos según su comportamiento de uso de tarjetas de crédito. El objetivo es identificar segmentos diferenciados para proponer estrategias de marketing personalizadas. Existen soluciones similares en el mercado que aplican machine learning para analizar comportamientos financieros, como el uso de modelos de clustering para segmentación en análisis de riesgos, crédito y optimización de campañas de fidelización.
 
-
-Metodología
+## Metodología
 
 ![image](https://github.com/user-attachments/assets/ba25f979-e078-40bf-a10b-670e35237a76)
 
-Análisis exploratorio. Utilicen este espacio para explicar a su audiencia el dataset con el que cuentan y los descubrimientos relevantes que realizaron sobre él durante la exploración. Dar preferencias a la descripción de columnas/descubrimientos que luego serán relevantes como sustentación de decisiones técnicas (limpieza de datos, feature engineering, etc).
+
+### Análisis Exploratorio
+Para llevar a cabo este análisis, utilizamos un dataset con características de uso de tarjetas de crédito. Las variables incluyen datos demográficos y de uso financiero, tales como la antigüedad de la cuenta, el número de transacciones, y el saldo promedio. Durante la exploración, observamos patrones iniciales que sugerían la presencia de distintos perfiles de uso. Estos hallazgos fueron determinantes para seleccionar las características más relevantes y dirigir el enfoque de segmentación.
 
 ![image](https://github.com/user-attachments/assets/1af0f57a-9766-415f-b955-3b905ca238f6)
 
@@ -40,9 +44,32 @@ Se propone las 4 nuevas características:
 - Categoria de Saldo
 - Categoria antiguedad
 
+### Procesamiento de Datos
+El procesamiento incluyó la limpieza de datos para eliminar outliers y valores nulos, así como la normalización de los datos numéricos para garantizar una escala uniforme, lo cual es esencial para el funcionamiento de KMeans. Esta preparación permitió mejorar la precisión del modelo y asegurar que cada variable contribuya de manera equitativa al clustering.
 
-Procesamiento de datos. Expliquen aquí todo el procesamiento que le realizaron a sus datos y justifíquenlo.
-Entrenamiento y tuneo de hiperparámetros. Expliquen aquí la metodología que siguieron para el entrenamiento y tuneo. Expliquen y sustenten sus decisiones.
-Interpretación de los clusters: Expliquen la relación de las variables del modelo con los clusters (al menos 4) en el sentido del negocio, utilicen visualizaciones para poder ver el comportamiento de las variables en cada uno de los clusters.
-Implementación en el negocio
-Expliquen cómo implementarían el modelo en el negocio y justifíquenlo. La justificación puede ser basada en cómo otras empresas implementan soluciones similares o puede ser basada en su humilde entendimiento del negocio.
+### Entrenamiento y Tuneo de Hiperparámetros
+Entrenamos el modelo utilizando el algoritmo KMeans, experimentando con diferentes valores de `k` para determinar el número óptimo de clusters mediante el método del codo. Se realizaron ajustes de hiperparámetros para obtener una buena estabilidad y coherencia en la segmentación. La decisión final sobre `k` se sustentó en la capacidad de cada grupo de ofrecer un valor significativo en términos de comportamiento y de negocio.
+
+### Interpretación de los Clusters
+El modelo resultante identificó al menos cuatro clusters, cada uno con características de comportamiento financiero distintas. Mediante visualizaciones como gráficos de barras y dispersión, analizamos cómo cada variable (como el volumen de transacciones y la antigüedad de la cuenta) impacta a cada cluster. Esto proporciona una base para entender a cada grupo en términos de probabilidad de retención, necesidad de incentivos, o riesgo de abandono.
+
+![Distribución de Clusters](path/to/cluster_distribution.png)
+![Análisis de Variables por Cluster](path/to/variable_analysis_by_cluster.png)
+
+## Implementación en el Negocio
+La implementación del modelo permitiría a la empresa desarrollar estrategias de marketing personalizadas, tales como ofertas y recompensas dirigidas, según el cluster al que pertenezca cada cliente. Esto no solo aumentaría la retención de clientes, sino que también permitiría identificar oportunidades para cross-selling y up-selling. Empresas similares han aplicado clustering en sus departamentos de CRM para mejorar la personalización y la experiencia del cliente, logrando resultados positivos en retención y satisfacción.
+
+## Limitaciones
+Entre las limitaciones del proyecto se incluyen:
+- **Limitaciones computacionales**: Para grandes volúmenes de datos, el modelo KMeans puede requerir un procesamiento significativo.
+- **Falta de variables adicionales**: Variables adicionales, como historial de pagos o patrones de consumo específicos, podrían mejorar la discriminación de clusters y hacer que los resultados sean más precisos.
+
+## Conclusiones y Recomendaciones
+La segmentación de clientes en función de su comportamiento con tarjetas de crédito fue exitosa, proporcionando insights valiosos para la empresa. Recomendamos a futuros analistas considerar técnicas de feature engineering para enriquecer aún más los datos. Al negocio, le recomendamos mantener un registro exhaustivo y detallado de las transacciones de los clientes, pues esta información es vital para mejorar la segmentación y personalización de las ofertas.
+
+## Future Work
+Para mejorar este proyecto, proponemos los siguientes desarrollos futuros:
+- Experimentar con algoritmos de clustering avanzados, como DBSCAN, para manejar mejor los outliers.
+- Incluir nuevas variables que reflejen el comportamiento de pago de los clientes.
+- Automatizar el proceso de actualización del modelo con nuevos datos de clientes en tiempo real para una adaptación continua.
+
