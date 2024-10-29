@@ -11,6 +11,7 @@ La solución: aquí se plantea la solución, que aunque es altamente técnica, e
 
 Metodología
 
+![image](https://github.com/user-attachments/assets/ba25f979-e078-40bf-a10b-670e35237a76)
 
 Análisis exploratorio. Utilicen este espacio para explicar a su audiencia el dataset con el que cuentan y los descubrimientos relevantes que realizaron sobre él durante la exploración. Dar preferencias a la descripción de columnas/descubrimientos que luego serán relevantes como sustentación de decisiones técnicas (limpieza de datos, feature engineering, etc).
 Procesamiento de datos. Expliquen aquí todo el procesamiento que le realizaron a sus datos y justifíquenlo.
